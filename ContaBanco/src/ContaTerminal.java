@@ -1,24 +1,17 @@
+import util.leitor.LeitorUtil;
+import util.leitor.TipoEntrada;
+
 import java.util.Scanner;
 
 public class ContaTerminal {
     public static void main(String[] args) {
-        Scanner terminal = new Scanner(System.in);
 
-        System.out.println("Por favor, digite o número da Agência");
-        Integer numero = terminal.nextInt();
-        terminal.nextLine();
+        String numero = LeitorUtil.lerTerminal("Por favor, digite o número da Agência", TipoEntrada.INT);
+        String agencia = LeitorUtil.lerTerminal("Por favor, digite a Agência", TipoEntrada.STRING);
+        String cliente = LeitorUtil.lerTerminal("Por favor, Seu nome", TipoEntrada.STRING);
+        String saldo = LeitorUtil.lerTerminal("Por favor, o saldo inicial (ex.: 12,5)", TipoEntrada.DOUBLE);
 
-        System.out.println("Por favor, digite a Agência");
-        String agencia = terminal.nextLine();
-
-        System.out.println("Por favor, Seu nome");
-        String cliente = terminal.nextLine();
-
-        System.out.println("Por favor, o saldo inicial");
-        Double saldo = terminal.nextDouble();
-
-
-        imprimirMensagemContaCriada(cliente, agencia, numero.toString(), saldo.toString());
+        imprimirMensagemContaCriada(cliente, agencia, numero, saldo);
     }
 
     private static void imprimirMensagemContaCriada(String cliente, String agencia, String numero, String saldo) {
